@@ -1,0 +1,231 @@
+.flex_table {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+
+  .table_head,
+  .table_row  {
+    display: flex;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+
+    .id {
+      border-right: 1px solid $grey;
+      display: flex;
+      height: 100%;
+      text-align: center;
+      width: 80px;
+    }
+
+    .rest {
+      display: flex;
+      flex-flow: row wrap;
+      flex: 1 0 0;
+    }
+
+    .table_col {
+      align-self: center;
+      flex: 1 0 0;
+      text-align: center;
+
+      &.wide {
+        border-bottom: 1px solid $grey;
+        margin-bottom: 5px;
+        min-width: 100%;
+        padding-bottom: 5px;
+      }
+
+      &.thin {
+        min-width: 20%;
+      }
+    }
+  }
+
+  .table_head  {
+    border-bottom: 2px solid $primary;
+    font-weight: bold;
+  }
+
+  .table_row  {
+    border-bottom: 1px solid $primary;
+  }
+
+  thead,
+  tbody {
+    width: 100%;
+    text-align: center
+  }
+
+  thead {
+    border-bottom: 2px solid $primary;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid $grey;
+    margin-bottom: 5px;
+  }
+
+  tr {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .thin {
+    flex: 1 0 0;
+    margin: 0 5px;
+    min-width: 40%;
+
+    input {
+      height: auto;
+    }
+  }
+
+  .wide {
+    flex: 2;
+    margin: 0 10px;
+    min-width: 40%;
+  }
+
+  td input {
+    width: auto;
+  }
+}
+
+
+.flex_table_large {
+  display: flex;
+  flex-flow: row wrap;
+  width:100%;
+
+  .table_head,
+  .table_head_2,
+  .table_head_3 {
+    font-weight: bold;
+  }
+
+  .table_head,
+  .table_row {
+    align-content: center;
+    box-sizing: border-box;
+    display: flex;
+    flex: 1 0 0;
+    min-width: 80%;
+    padding: 5px 20px;
+  }
+
+  .table_head_2,
+  .table_head_3 {
+    align-content: center;
+    box-sizing: border-box;
+    display: none;
+    flex: 1 0 0;
+    min-width: 80%;
+    padding: 5px 20px;
+  }
+
+  .table_col {
+    align-self: center;
+    flex: 1 0 0;
+    margin: 0;
+  }
+}
+
+
+@include respond-above(sm) {
+  .flex_table_large {
+    .table_head,
+    .table_row,
+    .table_head_2 {
+      min-width: 50%;
+    }
+
+    .table_head_2 {
+      display: flex;
+    }
+  }
+
+  .flex_table {
+    .table_head,
+    .table_row  {
+      display: flex;
+      width: 100%;
+
+      .id {
+        border: none;
+        display: block;
+        text-align: center;
+        width: 100px;
+      }
+
+      .rest {
+        display: flex;
+        flex: 1 0 0;
+      }
+
+      .table_col {
+        border: none;
+        flex: 1 0 0;
+
+        &.wide {
+          border: none;
+          min-width: 10px;
+        }
+
+        &.thin {
+          min-width: 10px;
+        }
+      }
+    }
+
+    .table_row  {
+      border-bottom: 1px solid $grey;
+      padding-bottom: 0;
+    }
+
+    tbody tr {
+      border-bottom: none;
+    }
+
+    tr {
+      flex-flow: row nowrap;
+
+      &.border {
+        border-bottom: 1px solid $grey;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+      }
+    }
+
+    .thin {
+      min-width: auto;
+
+      &.min {
+        max-width: 85px;
+      }
+    }
+
+    .wide {
+      min-width: auto;
+    }
+  }
+}
+
+
+@include respond-above(md) {
+  .flex_table_large {
+    .table_head,
+    .table_row,
+    .table_head_2,
+    .table_head_3 {
+      min-width: 33%;
+    }
+
+    .table_head_3 {
+      display: flex;
+    }
+  }
+}

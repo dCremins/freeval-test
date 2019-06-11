@@ -1,0 +1,15 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Welcome to {{title}}.">
+<meta name="author" content="{{author}}">
+<title>{{title}}</title>
+<link href="css/{{main}}" rel="stylesheet">
+
+<noscript>
+  <style>
+    .tool picture.icon {
+      height: 0;
+    }
+  </style>
+</noscript>

@@ -1,0 +1,114 @@
+{% macro renderSection(section=training) %}
+
+<section id="{{section.id}}" class="flexible">
+
+  {% if section.title %} <h2>{{section.title}}</h2> {% endif %}
+
+  {% if section.resources and section.left %}
+    <aside class="thirty left">
+      {% for resource in section.resources %}
+        <article class="sidebar">
+        {% if resource.image %}
+          <picture class="lozad {{resource.image.class}}" data-iesrc="assets/{{resource.image.url}}.png" data-alt="{{resource.image.alt}}">
+            <source srcset="assets/{{resource.image.url}}.png" type="image/png">
+            <source srcset="assets/{{resource.image.url}}.webp" type="image/webp">
+          </picture>
+          <noscript>
+            <div class="{{resource.image.class}}">
+              <img src="assets/{{resource.image.url}}.png" />
+            </div>
+          </noscript>
+        {% endif %}
+
+        {% if resource.title %}
+          <h3>{{resource.title}}</h3>
+        {% endif %}
+
+        {% if resource.links %}
+          {% for link in resource.links %}
+            <a href="{{link.url}}">{{link.text}}</a>
+          {% endfor %}
+        {% endif %}
+        </article>
+      {% endfor %}
+    </aside>
+  {% endif %}
+
+{% if section.resources %} <article class="fill"> {% endif %}
+{% if not section.resources %} <article> {% endif %}
+
+    {% if section.description %} <p>{{section.description}}</p> {% endif %}
+
+    {% if section.list %}
+      <ul>
+        {% for item in section.list %}
+          <li>{{item}}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% for article in section.articles %}
+      <article>
+        {% if article.title %} <h3>{{article.title}}</h3> {% endif %}
+
+        {% if article.text %} <p>{{article.text}} </p> {% endif %}
+
+        {% if article.list %}
+          <ul>
+            {% for item in article.list %}
+              <li>{{item}}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        {% if article.link.url %}
+          <a class="article_link {{article.link.class}}" href="{{article.link.url}}">
+            {{ article.link.text if article.link.text else "Contact us to discuss {{article.title}}" }}
+          </a>
+        {% elif article.link %}
+          <a class="article_link" href="{{article.link}}">
+            Contact us to discuss {{article.title}}
+          </a>
+        {% endif %}
+
+        {% if article.video.url %}
+          <iframe class="video" src="{{article.video.url}}" title="{{article.video.title}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </article>
+
+
+  {% if section.resources and not section.left %}
+    <aside class="thirty">
+      {% for resource in section.resources %}
+        <article class="sidebar">
+        {% if resource.image %}
+          <picture class="lozad {{resource.image.class}}" data-iesrc="assets/{{resource.image.url}}.png" data-alt="{{resource.image.alt}}">
+            <source srcset="assets/{{resource.image.url}}.png" type="image/png">
+            <source srcset="assets/{{resource.image.url}}.webp" type="image/webp">
+          </picture>
+          <noscript>
+            <div class="{{resource.image.class}}">
+              <img src="assets/{{resource.image.url}}.png" />
+            </div>
+          </noscript>
+        {% endif %}
+
+        {% if resource.title %}
+          <h3>{{resource.title}}</h3>
+        {% endif %}
+
+        {% if resource.links %}
+          {% for link in resource.links %}
+            <a href="{{link.url}}">{{link.text}}</a>
+          {% endfor %}
+        {% endif %}
+        </article>
+      {% endfor %}
+    </aside>
+  {% endif %}
+
+</section>
+
+{% endmacro %}

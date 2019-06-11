@@ -1,0 +1,36 @@
+<section id="whoweare" class="staff_section">
+  <h2>Who We Are</h2>
+  <ol class="tabs">
+    {% for group in staffGroup %}
+      <li><a id="tab_{{group.tab}}" {%if group.name == 'ITRE' %}class='active_tab'{% endif %}>{{group.name}}</a></li>
+    {% endfor %}
+  </ol>
+  {% for group in staffGroup %}
+    <ul id="{{group.id}}" class="tab-content {%if group.name == 'ITRE' %}active_content{% endif %}">
+    {% for staff in group.members %}
+      <li class="staff">
+        {% if staff.image !== '' %}
+        <div class="staff-image">
+          <picture class="lozad" data-iesrc="assets/staff-{{staff.image}}.png" data-alt="{{staff.name}} Staff Photo">
+            <source srcset="assets/staff-{{staff.image}}.png" type="image/png">
+            <source srcset="assets/staff-{{staff.image}}.webp" type="image/webp">
+          </picture>
+          <noscript>
+            <div>
+              <img src="assets/staff-{{staff.image}}.png" />
+            </div>
+          </noscript>
+        </div>
+        {% endif %}
+        <div class="staff-content">
+          <h3>{{staff.name}}</h3>
+          <h4>{{staff.title}}</h4>
+          {% if staff.description !== '' %}
+          <p>{{staff.description}}</p>
+          {% endif %}
+        </div>
+      </li>
+    {% endfor %}
+    </ul>
+  {% endfor %}
+</section>

@@ -1,0 +1,166 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  box-sizing: border-box;
+  color: $ink;
+  font-family: $font-family;
+  @include size-fallback($mt0)
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+picture {
+  display: block;
+  margin: 10px auto;
+  width: 100%;
+}
+
+img {
+  width: 100%;
+}
+
+main {
+  box-sizing: border-box;
+  padding: 0 20px;
+  width: 100%;
+
+  &.flexible {
+    align-items: center;
+  }
+
+  section {
+    box-sizing: border-box;
+    padding: 25px 0 0;
+    width: 100%;
+
+    &.project_section {
+      padding-top: 0;
+    }
+  }
+}
+
+.flexible {
+  display: flex;
+  flex-flow: row wrap;
+
+  &.center {
+    align-items: center
+  }
+
+  &.space {
+    justify-content: space-between;
+  }
+
+  .auto {
+    align-self: center;
+    margin-right: 40px;
+    width: auto;
+  }
+}
+
+section.no-top {
+  padding-top: 0;
+
+  h2,
+  h3 {
+    margin-top: 0;
+  }
+}
+
+p,
+li {
+  font-weight: lighter;
+  margin: 0.5em 0;
+}
+
+a {
+  color: $primary;
+
+  &:visited {
+    color: #cc0000;
+  }
+}
+
+small {
+  @include size-fallback($mt-1)
+  font-weight: lighter;
+}
+
+ul,
+ol {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+h1 {
+  @include size-fallback($mt2)
+  font-weight: bold;
+  margin: 0.5em 0;
+}
+
+h2 {
+  @include size-fallback($mt1)
+  font-weight: bold;
+  margin: 0.5em 0;
+  width: 100%;
+}
+
+h3 {
+  @include size-fallback($mt0)
+  font-weight: bold;
+  margin: 1em 0 0.5em 0;
+}
+
+.privacy {
+  h1 {
+    margin: 1em 0;
+  }
+}
+
+.buffer {
+  height: 120px;
+}
+
+hr {
+  background-color: $grey;
+  border: none;
+  height: 1px;
+  width: 100%;
+}
+
+@include respond-above(sm) {
+  main {
+    flex-grow: 1;
+
+    section,
+    aside {
+      padding: 20px 0 10px;
+    }
+  }
+
+  main,
+  header,
+  nav {
+    margin: auto;
+    max-width: 1500px;
+    width: 90%;
+  }
+
+  body {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+}

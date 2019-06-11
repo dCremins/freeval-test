@@ -1,0 +1,66 @@
+.tool {
+  border: solid 3px #f0f0f0;
+  box-sizing: border-box;
+  flex: 1 0 0;
+  margin-bottom: 20px;
+  min-width: 100%;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s;
+
+  h1 {
+    @include size-fallback($mt1)
+  }
+
+  .icon {
+    border-radius: 100px;
+    height: 150px;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 150px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  a {
+    display: block;
+    width: 100%;
+  }
+}
+
+.tool-list {
+  display: inline-block;
+  margin: 10px auto;
+  text-align: left;
+}
+
+@include respond-above(sm) {
+  .tool {
+    margin: 10px;
+    min-width: 300px;
+
+    &:hover {
+      border-right: solid 3px #ccc;
+      border-bottom: solid 3px #ccc;
+      box-shadow: 7px 7px 10px #ccc;
+      transform: translateY(-15px);
+    }
+  }
+
+  .boxes {
+    .info {
+      display: flex;
+      width: 100%;
+
+      p {
+        flex-grow: 1;
+      }
+
+      iframe {
+        padding: 0 20px;
+      }
+    }
+  }
+}

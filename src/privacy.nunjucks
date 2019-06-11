@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include 'google.nunjucks' %}
+    {% include 'head.nunjucks' %}
+  </head>
+  <body>
+
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TN5857K"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+{% include 'header.nunjucks' %}
+
+    <main class="privacy">
+      <h1>Privacy Policy</h1>
+
+      <article>
+        <h2>Website analytics</h2>
+        <p>
+          To improve your experience on our site, we may use 'cookies'. Cookies are an industry standard and most major web sites use them.
+          A cookie is a small text file that our site may place on your computer as a tool to remember your preferences.
+          You may refuse the use of cookies by selecting the appropriate settings on your browser,
+          however please note that if you do this you may not be able to use the full functionality of this website.
+        </p>
+        <p>
+          Our website uses Google Analytics, a service which transmits website traffic data to Google servers in the United States.
+          Google Analytics does not identify individual users or associate your IP address with any other data held by Google.
+          We use reports provided by Google Analytics to help us understand website traffic and webpage usage.
+        </p>
+        <p>
+          By using this website, you consent to the processing of data about you by Google in the manner described in
+          <a id="Google_Privacy_Policy" href="https://www.google.com/policies/privacy/">Google's Privacy Policy</a> and for the purposes set out above.
+          You can opt out of Google Analytics if you disable or refuse the cookie, disable JavaScript, or
+          <a id="Google_opt_out" href="https://tools.google.com/dlpage/gaoptout">use the opt-out service provided by Google</a>.
+        </p>
+      </article>
+    </main>
+    {% include 'footer.nunjucks' %}
+  </body>
+</html>

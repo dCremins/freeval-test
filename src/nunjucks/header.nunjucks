@@ -1,0 +1,61 @@
+<header id="home">
+  <div class="flexible header">
+    <span class="sticky_bumper"></span>
+    <section class="logo">
+      <a id="logo_holder" href="/" alt="{{title}}" class="logo-img full single-logo">
+        <picture id="logo" class="lozad" data-iesrc="assets/logo-small.png" data-alt="{{title}} Icon Logo">
+          <source srcset="assets/logo-small.png" type="image/png">
+          <source srcset="assets/logo-small.webp" type="image/webp">
+        </picture>
+        <noscript>
+          <div class="logo_small lozad" >
+            <img src="assets/logo-small.png" />
+          </div>
+        </noscript>
+      </a>
+      <a href="/" class="logo-img small">
+        <picture class="logo_small lozad" data-alt="{{title}} Logo with Icon and Text" data-iesrc="assets/logo-small.png">
+          <source srcset="assets/logo-small.png" type="image/png">
+          <source srcset="assets/logo-small.webp" type="image/webp">
+        </picture>
+        <noscript>
+          <div class="logo_small lozad" >
+            <img src="assets/logo-small.png" />
+          </div>
+        </noscript>
+        <h1 class="small" >{{title}}</h1>
+      </a>
+    </section>
+    <section id="header" class="description">
+      <h1 id="title" class="single-logo">{{title}}</h1>
+      <p id="blurb" class="full blurb"><strong>{{bolded}}</strong> {{description}}
+        {% if contact %}
+        {{header_contact}}
+        <a href="mailto:{{contact}}">{{contact_label}}</a>
+        {% endif %}
+      </p>
+    </section>
+  </div>
+</header>
+
+<section id="navbar" class="main_nav">
+  <nav class="flexible">
+    {% for item in nav %}
+    <a id="main_{{item.id}}" href="/#{{item.id}}">{{item.label}}</a>
+    {% endfor %}
+  </nav>
+</section>
+
+<section id="mobile_navbar" class="mobile_nav">
+  <button class="hamburger hamburger--collapse" id="mobile_button" type="button"
+        aria-label="Menu Toggle" aria-controls="mobile-navigation" aria-expanded="false">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+  <nav id="mobile-navigation" class="mobile">
+    {% for item in nav %}
+    <a id="mobile_{{item.id}}" href="/#{{item.id}}">{{item.label}}</a>
+    {% endfor %}
+  </nav>
+</section>

@@ -1,0 +1,55 @@
+{% macro renderTools(section=tools) %}
+<section id="{{section.id}}" class="flexible boxes">
+  {% if section.title %} <h2>{{section.title}}</h2> {% endif %}
+
+  <div class="info">
+    {% if section.description %} <p>{{section.description}}</p> {% endif %}
+
+    {% if section.video.url %}
+      <iframe class="video" src="{{section.video.url}}" title="{{section.video.title}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    {% endif %}
+  </div>
+
+  {% for tool in section.tools %}
+    <article class="tool">
+      {% if tool.icon %}
+        <picture class="lozad icon" data-iesrc="assets/icon-{{tool.icon}}.png" data-alt="{{tool.title}} Logo Icon">
+          <source srcset="assets/icon-{{tool.icon}}.png" type="image/png">
+          <source srcset="assets/icon-{{tool.icon}}.webp" type="image/webp">
+        </picture>
+        <noscript>
+          <div class="icon" >
+            <img src="assets/icon-{{tool.icon}}.png" />
+          </div>
+        </noscript>
+      {% endif %}
+
+      {% if tool.title %} <h1>{{tool.title}}</h1> {% endif %}
+
+      {% if tool.description %} <p>{{tool.description}}</p> {% endif %}
+
+      {% if tool.list %}
+        <ul class="tool-list">
+          {% for item in tool.list %}
+            <li>{{item}}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% if tool.resources %}
+        <ul class="tool-list">
+          {% for resource in tool.resources %}
+            <li>
+              <a id="{{ resource.text | replace(' ', '_') }}" href="{{resource.link}}">{{resource.text}}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if tool.link %}
+        <a id="{{ tool.title | replace(' ', '_') }}" href="{{tool.link}}">{{tool.button}}</a>
+      {% endif %}
+    </article>
+  {% endfor %}
+</section>
+
+{% endmacro %}

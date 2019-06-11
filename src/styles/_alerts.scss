@@ -1,0 +1,10 @@
+.swal2-container {
+  h2.swal2-title {
+    // Look I know !important is bad, but I can't figure out how to remove the inline style
+    display: block !important;
+  }
+
+  .swal2-actions button {
+    margin: 5px 10px;
+  }
+}

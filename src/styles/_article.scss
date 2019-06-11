@@ -1,0 +1,85 @@
+.icon {
+  margin: auto;
+  width: 150px;
+}
+
+.sidebar {
+  margin-bottom: 20px;
+
+  a {
+    display: block;
+  }
+}
+
+.video {
+  display: block;
+  height: 170px;
+  margin: 10px auto;
+  width: 300px;
+}
+
+.info {
+  height: auto;
+  width: 100%;
+}
+
+.article_link {
+  background: $primary;
+  border-radius: 15px;
+  color: white;
+  display: inline-block;
+  padding: 15px;
+  margin: 5px 0 10px;
+  text-decoration: none;
+  width: auto;
+
+  &.plain {
+    background: transparent;
+    color: $primary;
+    padding: 0;
+  }
+}
+
+@include respond-above(xs) {
+  .video {
+    height: 225px;
+    width: 400px;
+  }
+}
+
+@include respond-above(sm) {
+  .seventy {
+    align-self: center;
+    box-sizing: border-box;
+    padding-right: 40px;
+    width: 70%;
+  }
+
+  .fill {
+    align-self: center;
+    width: 70%;
+  }
+
+  .thirty {
+    align-self: center;
+    padding-left: 20px;
+    margin-right: 0;
+    text-align: center;
+    width: 30%;
+
+    &.left {
+      margin-right: 20px;
+      margin-left: 0;
+      width: 20%;
+    }
+  }
+
+  .video {
+    height: 315px;
+    width: 560px;
+  }
+
+  .info {
+    //width: 100%;
+  }
+}

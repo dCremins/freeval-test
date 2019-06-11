@@ -1,0 +1,34 @@
+.staff_section {
+
+  .staff-image {
+    box-sizing: border-box;
+    flex: 1 0 0;
+    min-width: 100%;
+    padding: 0 20px;
+    text-align: center;
+
+    .icon {
+      border-radius: 100px;
+      height: 150px;
+      margin: 0 auto;
+      overflow: hidden;
+      width: 150px;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .staff-content {
+    margin: 5px auto;
+    width: 100%;
+
+    h4 {
+      color: $primary;
+      font-style: italic;
+      font-weight: lighter;
+      margin: 0;
+    }
+  }
+}

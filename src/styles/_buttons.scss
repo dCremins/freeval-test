@@ -1,0 +1,46 @@
+button,
+.button {
+  background-color: $primary;
+  border: 2px solid $primary;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  @include size-fallback($mt0)
+  margin: 10px 10px 20px 0;
+  padding: 10px 20px;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    background-color: white;
+    color: $primary;
+    text-decoration: underline;
+  }
+
+  &.secondary,
+  &.submit {
+    background-color: $secondary;
+    border: 2px solid $secondary;
+    &:hover,
+    &:focus {
+      background-color: white;
+      color: $secondary;
+    }
+  }
+
+  &.minor {
+    background-color: $grey;
+    border: 2px solid $grey;
+
+    &:hover,
+    &:focus {
+      background-color: white;
+      color: $grey;
+    }
+  }
+
+  &.no-space {
+    margin: 0;
+  }
+}

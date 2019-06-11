@@ -1,0 +1,163 @@
+input,
+textarea,
+select {
+  background-color: white;
+  border: 1px solid $grey;
+  border-radius: .25rem;
+  box-sizing: border-box;
+  display: block;
+  @include size-fallback($mt0)
+  height: 38px;
+  margin: 5px auto 15px;
+  padding: .375rem .75rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  width: 100%;
+
+  &:disabled {
+    background-color: lighten($grey, 15%);
+    cursor: not-allowed;
+  }
+}
+
+.form {
+  box-sizing: border-box;
+  width: 100%;
+
+  &.content {
+    margin: auto;
+    padding: 0 20px;
+    width: 100%;
+  }
+
+  .radio {
+    align-items: center;
+    display: flex;
+    margin: 10px 0;
+
+    input {
+      height: 20px;
+      margin: 4px 10px 0 0;
+      width: auto;
+    }
+  }
+}
+
+section.form_section {
+  display: none;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 15px 0 0;
+  text-align: left;
+
+  &.active_sub_content {
+    display: flex;
+  }
+
+  &:last-child {
+    border: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    width: 100%;
+  }
+
+  section.block {
+    padding: 20px 0 10px;
+  }
+
+  .block {
+    display: block;
+    width: 100%;
+  }
+
+
+  label {
+    box-sizing: border-box;
+  }
+  .popup {
+    margin-bottom: 30px;
+
+    h2 {
+      border-radius: 5px 5px 0 0;
+      box-sizing: border-box;
+      padding: 10px 20px;
+      margin: 0;
+      text-decoration: none;
+      width:100%;
+    }
+
+    p {
+      border-radius: 0 0 5px 5px;
+      box-sizing: border-box;
+      padding: 10px 20px;
+      margin: 0;
+      width:100%;
+    }
+  }
+}
+
+article {
+  &.primary {
+    h2 {
+      background-color: lighten($primary, 48%);
+      color: $primary;
+      border: 1px solid $primary;
+      border-bottom: none;
+    }
+
+    p {
+      border: 1px solid $primary;
+      border-top: none;
+    }
+  }
+
+  &.secondary {
+    h2 {
+      background-color: lighten($secondary, 51%);
+      border: 1px solid $secondary;
+      border-bottom: none;
+      color: darken($secondary, 16%);
+    }
+
+    p {
+      border: 1px solid $secondary;
+      border-top: none;
+    }
+  }
+}
+
+table thead {
+  font-weight: bolder;
+}
+
+
+@include respond-above(sm) {
+  section.form_section {
+    h1 {
+      @include size-fallback($mt1)
+    }
+
+    .block {
+      flex: 1 0 0;
+      min-width: 40%;
+      margin: 0 10px;
+    }
+  }
+}
+
+@include respond-above(xs) {
+  section.content {
+    max-width: 600px;
+  }
+}
+
+@include respond-above(sm) {
+  section.content {
+    max-width: 700px;
+  }
+}

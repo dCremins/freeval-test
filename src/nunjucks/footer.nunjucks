@@ -1,0 +1,37 @@
+<footer id="contact">
+  <section class="flexible">
+    <article>
+      <p>For any questions or further inquiries, please contact
+        <a id="footer_mailto" href="mailto:{{contact}}">{{contact_label}}</a>
+      </p>
+
+      <p>
+        {{phone}}
+      </p>
+
+      <p>
+        {{address1}} <br />
+        {{address2}}
+      </p>
+      <p>Copyright 2018</p>
+    </article>
+    <article class="footer-img">
+        <picture class="lozad" data-iesrc="assets/misc-building.png" data-alt="Research Building IV on Centennial Campus at NC State University">
+          <source srcset="assets/misc-building.png" type="image/png">
+          <source srcset="assets/misc-building.webp" type="image/webp">
+        </picture>
+        <noscript>
+          <div>
+            <img src="assets/misc-building.png" />
+          </div>
+        </noscript>
+    </article>
+  </section>
+  <p class="disclaimer">
+    This site collects Google Analytics information for internal monitoring purposes. <a id="privacy_policy" href="privacy.html">Read our Privacy Policy</a> or
+    <a href="https://tools.google.com/dlpage/gaoptout/">opt-out of Google Analytics.</a>
+  </p>
+  <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
+  <script src="{{bundled}}" defer></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+</footer>

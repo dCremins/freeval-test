@@ -1,0 +1,86 @@
+footer {
+  background-color: $primary;
+  box-sizing: border-box;
+  color: white;
+  @include size-fallback($mt1)
+  line-height: $mt1;
+  margin-top: 50px;
+  padding: 15px 0;
+  text-align: center;
+
+  a {
+    color: white;
+  }
+
+  article {
+    box-sizing: border-box;
+    display: flex;
+    flex: 1 0 0;
+    flex-flow: column;
+    justify-content: space-around;
+    margin: 0 0 10px 0;
+    padding: 0;
+  }
+
+  p {
+    margin: 10px auto;
+  }
+}
+
+.sticky-footer {
+  background-color: white;
+  border-top: 3px solid $primary;
+  bottom: 0;
+  color: $ink;
+  padding: 5px 20px;
+  position: fixed;
+  width: 100%;
+
+  a,
+  .disclaimer a {
+    color: $primary;
+  }
+
+  .disclaimer {
+    flex: 1 0 0;
+    padding-left: 30px;
+    text-align: left;
+  }
+
+  .logo {
+    max-width: 50px;
+  }
+}
+
+.footer-img {
+  margin: 0 10px;
+  max-width: 35%;
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+}
+
+.disclaimer {
+  font-size: 0.563em;
+  font-weight: lighter;
+  line-height: 1.5em;
+  width: 100%;
+
+  a {
+    color: white;
+  }
+}
+
+
+
+@include respond-above(sm) {
+  footer {
+    .flexible {
+      margin: auto;
+      max-width: 1500px;
+      width: 90%;
+    }
+  }
+}
