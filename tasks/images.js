@@ -3,19 +3,9 @@ const plumber = require('gulp-plumber')
 const favicons = require("favicons").stream
 const imagemin = require('gulp-imagemin')
 const responsive = require('gulp-responsive')
-const minimist = require('minimist')
-const knownOptions = {
-  string: 'root',
-  string: 'home',
-  default: {
-    root: 'default',
-    home: 'itredatalab.org'
-  }
-}
-const options = minimist(process.argv.slice(2), knownOptions)
 
 gulp.task('images', () => {
-	return gulp.src(options.root+'/src/assets/*.{png,jpg,jpeg,gif}')
+	return gulp.src('./src/assets/*.{png,jpg,jpeg,gif}')
 		.pipe(plumber())
     .pipe(responsive({
       'staff-*': [{
@@ -57,18 +47,18 @@ gulp.task('images', () => {
       allowEmpty: true
     }))
 		.pipe(imagemin())
-		.pipe(gulp.dest(options.root+'/build/assets'))
+		.pipe(gulp.dest('./build/assets'))
 })
 
 gulp.task('imageMin', () => {
-	return gulp.src(options.root+'/build/assets/*')
+	return gulp.src('./build/assets/*')
 		.pipe(plumber())
 		.pipe(imagemin())
-		.pipe(gulp.dest(options.root+'/build/assets'))
+		.pipe(gulp.dest('./build/assets'))
 })
 
 gulp.task('favicon', () => {
-	return gulp.src(options.root+'/src/assets/logo.png')
+	return gulp.src('./src/assets/logo.png')
 		.pipe(plumber())
     .pipe(favicons({
         version: 1.0,
@@ -76,7 +66,7 @@ gulp.task('favicon', () => {
         html: "index.html",
         pipeHTML: true,
         replace: true,
-        url: 'http://'+options.home,
+        url: 'http://freeval.org',
         icons: {
           android: false,              // Create Android homescreen icon. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
           appleIcon: false,            // Create Apple touch icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
@@ -88,9 +78,9 @@ gulp.task('favicon', () => {
           yandex: false
         }
     }))
-		.pipe(gulp.dest(options.root+'/build/'))
+		.pipe(gulp.dest('./build/'))
 })
 
 gulp.task('build-images', gulp.series(()=>{
-  return del(options.root+'/build/assets')
+  return del('./build/assets')
 }, 'images'))

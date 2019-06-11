@@ -17,8 +17,8 @@ const knownOptions = {
   string: 'home',
   string: 'style',
   default: {
-    root: 'default',
-    home: 'itredatalab.org',
+    root: '.',
+    home: 'freeval.org',
     style: 'static'
   }
 }
@@ -27,26 +27,12 @@ const options = minimist(process.argv.slice(2), knownOptions)
 const tasks = {
   style: true,
   script: true,
-  blog: false,
-  html: false,
-  python: false,
+  html: true,
   images: true,
   favicon: true,
-  gzip: false
+  gzip: true
 }
 
-switch(options.style) {
-  case 'blog':
-    tasks.blog = true
-    break
-  case 'python':
-    tasks.python = true
-    break
-  default:
-    tasks.html = true
-    tasks.gzip = true
-    break
-}
 
 gulp.task('skip', (done) => {
   done()
@@ -93,12 +79,6 @@ gulp.task('clear', ()=> {
   ])
 })
 
-gulp.task('serve-python', ()=> {
-  return gulp.src(options.root+'/src/python/**.*')
-	  .pipe(plumber())
-    .pipe(gulp.dest(options.root+'/build'))
-})
-
 gulp.task('compile', gulp.series(
   ()=>{ return del(options.root+'/build') },
   tasks.script ? 'javascript' : 'skip',
@@ -106,32 +86,11 @@ gulp.task('compile', gulp.series(
   tasks.images ? 'images' : 'skip',
   tasks.images ? 'imageMin' : 'skip',
   tasks.favicon ? 'favicon' : 'skip',
-  tasks.blog ? 'markdown' : 'skip',
   tasks.html ? 'html' : 'skip',
   tasks.gzip ? 'gzip' : 'skip',
   ()=>{ return del(options.root+'/holder') }
 ))
 
-gulp.task('compile-python', gulp.series(
-  ()=>{ return del(options.root+'/build') },
-  tasks.script ? 'javascript-python' : 'skip',
-  tasks.style ? 'sass-python' : 'skip',
-  tasks.images ? 'images' : 'skip',
-  tasks.images ? 'imageMin' : 'skip',
-  tasks.favicon ? 'favicon' : 'skip',
-  'html-python',
-  tasks.gzip ? 'gzip' : 'skip'
-))
-
-gulp.task('compile-pretty', gulp.series(
-  ()=>{ return del(options.root+'/build') },
-  'javascript',
-  'css',
-  'images',
-  'imageMin',
-  'favicon',
-  'html-pretty'
-))
 
 gulp.task('quick-compile', gulp.series(()=>{
   return del([
@@ -142,6 +101,4 @@ gulp.task('quick-compile', gulp.series(()=>{
   ])
 }, 'javascript', 'css', 'html', 'gzip'))
 
-gulp.task('build', gulp.series(
-  tasks.python ? 'compile-python' : 'compile',
-  tasks.python ? 'serve-python' : 'serve'))
+gulp.task('build', gulp.series('compile','serve'))
