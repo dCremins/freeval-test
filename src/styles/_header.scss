@@ -38,6 +38,7 @@
   height: auto;
   width: 200px;
   transition: all .25s;
+  z-index:200;
 
   .header-icon {
     margin-left: 0;
@@ -226,6 +227,7 @@
     top: 13px;
     transition: width .5s, padding .5s;
     width: 100px;
+    z-index:2;
   }
 }
 
@@ -310,7 +312,7 @@
         margin: 6px 25px;
         width: 40px;
         transition: width .5s, padding .5s 1s;
-        z-index: 1;
+        z-index: 2;
       }
     }
   }
