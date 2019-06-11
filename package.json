@@ -4,7 +4,7 @@
   "description": "A boilerplate of scripts to streamline website development",
   "scripts": {
     "test": "snyk test",
-    "build": "gulp compile",
+    "compile": "gulp compile",
     "serve": "gulp build",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect"
