@@ -43,7 +43,7 @@
     "modularscale-sass": "^3.0.7",
     "nunjucks": "^3.2.0",
     "sass": "^1.13.2",
-    "snyk": "^1.147.2",
+    "snyk": "^1.1012.0",
     "uglify-es": "^3.3.9"
   },
   "browserslist": [
